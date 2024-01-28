@@ -1,0 +1,39 @@
+{
+  "name": "@tenado/cnchar",
+  "version": "1.0.0",
+  "description": "中文汉字带属性，音调、五行属性、男女属性等",
+  "main": "./lib/cnchar.umd.cjs",
+  "module": "./lib/cnchar.js",
+  "exports": {
+    ".": {
+      "require": "./lib/cnchar.umd.cjs",
+      "import": "./lib/cnchar.js"
+    }
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "create": "node ./node/index.js",
+    "generare": "node ./node/test.js",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tenadolanter/cnchar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tenadolanter/cnchar/issues"
+  },
+  "homepage": "https://github.com/tenadolanter/cnchar#readme",
+  "devDependencies": {
+    "vite": "^5.1.4",
+    "cnchar": "^3.2.5",
+    "cnchar-info": "^3.2.5",
+    "cnchar-radical": "^3.2.5",
+    "limax": "^4.1.0",
+    "puppeteer": "^21.9.0"
+  }
+}
