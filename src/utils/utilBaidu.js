@@ -1,4 +1,4 @@
-const puppeteer = require("puppeteer");
+import puppeteer from "puppeteer";
 
 const sleep = async (ms = 200) => {
   let timer;
@@ -9,7 +9,7 @@ const sleep = async (ms = 200) => {
   );
 };
 
-const utilBaidu = async (char) => {
+export const utilBaidu = async (char) => {
   let result = void 0;
   try {
     let browser = await puppeteer.launch({
@@ -57,8 +57,4 @@ const utilBaidu = async (char) => {
     browser = null;
   } catch (error) {}
   return result;
-};
-
-module.exports = {
-  utilBaidu,
 };

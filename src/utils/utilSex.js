@@ -1,5 +1,5 @@
-const { charSex } = require("../config.js");
-const utilSex = (char) => {
+import { charSex } from "../config.js";
+export const utilSex = (char) => {
   if (charSex.boy.includes(char)) {
     return "男";
   } else if (charSex.girl.includes(char)) {
@@ -8,6 +8,3 @@ const utilSex = (char) => {
   return "";
 };
 
-module.exports = {
-  utilSex,
-};

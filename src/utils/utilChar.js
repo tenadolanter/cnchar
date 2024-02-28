@@ -1,15 +1,16 @@
-const cnchar = require("cnchar");
-const radical = require("cnchar-radical");
-const cnInfo = require("cnchar-info");
+import cnchar  from  "cnchar";
+import radical  from  "cnchar-radical";
+import cnInfo  from  "cnchar-info";
 
-const { utilSex } = require("./utilSex.js");
-const { utilTone } = require("./utilTone.js");
-const { utilBaidu } = require("./utilBaidu.js");
-const { commonChar } = require("../config.js")
+import { utilSex }  from  "./utilSex.js";
+import { utilTone }  from "./utilTone.js";
+import { utilBaidu } from "./utilBaidu.js";
+import { commonChar } from "../config.js";
+
 cnchar.use(radical);
 cnchar.use(cnInfo);
 
-const utilGenChar = async () => {
+export const utilGenChar = async () => {
   let result = [];
   for (let i = 0x4e00; i <= 0x9fd0; i++) {
     const char = String.fromCharCode(i);
@@ -39,8 +40,4 @@ const utilGenChar = async () => {
     result.push(charItem);
   }
   return result;
-}
-
-module.exports = {
-  utilGenChar,
 }

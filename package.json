@@ -11,12 +11,14 @@
     }
   },
   "files": [
-    "lib"
+    "lib",
+    "types"
   ],
   "type": "module",
   "scripts": {
     "create": "node ./node/index.js",
     "generare": "node ./node/test.js",
+    "ts": "tsc src/index.js --declaration --allowJs --emitDeclarationOnly --outDir types",
     "build": "vite build"
   },
   "repository": {
@@ -30,11 +32,12 @@
   },
   "homepage": "https://github.com/tenadolanter/cnchar#readme",
   "devDependencies": {
-    "vite": "^5.1.4",
     "cnchar": "^3.2.5",
     "cnchar-info": "^3.2.5",
     "cnchar-radical": "^3.2.5",
     "limax": "^4.1.0",
-    "puppeteer": "^21.9.0"
+    "puppeteer": "^21.9.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
   }
 }

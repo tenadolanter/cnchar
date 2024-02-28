@@ -1,5 +1,5 @@
-const limax = require("limax");
-const utilTone = (char) => {
+import limax from "limax";
+export const utilTone = (char) => {
   const text = limax(char, { tone: true })
   if(text) {
     const tone = text.split("").pop();
@@ -8,6 +8,3 @@ const utilTone = (char) => {
   return 0
 };
 
-module.exports = {
-  utilTone,
-};

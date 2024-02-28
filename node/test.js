@@ -1,7 +1,6 @@
-const { utilFileRead } = require("../src/utils/utilFile.js");
-const { utilRandom } = require("../src/utils/utilRandom.js");
-const { utilDafen } = require("../src/utils/utilDafen.js");
-
+import { utilFileRead } from "../src/utils/utilFile.js";
+import { utilRandom } from "../src/utils/utilRandom.js";
+import nameArray from "../src/index.js"
 // 生成属性为
 const surname = "张";
 const sex = "男";
@@ -12,8 +11,6 @@ const score = 90;
 
 (async () => {
   const genName = (sex, surname, fiveName, secondFive) => {
-    const filePath = "./src/data.json";
-    const nameArray = utilFileRead(filePath);
     const surnObj = nameArray.find((item) => item.char === surname);
     // 符合第一个条件的
     const firstNames = nameArray.filter(
@@ -49,25 +46,7 @@ const score = 90;
     return result;
   };
 
-  while (result.length < length) {
-    const rs = genNames(sex, surname, fiveName, secondFive, length);
-    for (let i = 0; i < rs.length; i++) {
-      const item = rs[i];
-      const _score = await utilDafen(item);
-      if (_score >= score) {
-        result.push({
-          score: _score,
-          data: item,
-        });
-      }
-    }
-  }
+  result = genNames(sex, surname, fiveName, secondFive, length)
 
-  let names = [];
-  result.forEach((item) => {
-    let name = item.data.map((ele) => ele.char).join("");
-    names.push(name + item.score + "分\n");
-  });
-
-  console.log(names.join(""));
+  console.log(result);
 })();
