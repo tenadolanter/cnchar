@@ -1,6 +1,6 @@
 {
   "name": "@tenado/cnchar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "中文汉字带属性，音调、五行属性、男女属性等",
   "main": "./lib/cnchar.umd.cjs",
   "module": "./lib/cnchar.js",
