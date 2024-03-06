@@ -17,6 +17,7 @@
   "type": "module",
   "scripts": {
     "create": "node ./node/index.js",
+    "update": "node ./node/update.js",
     "generare": "node ./node/test.js",
     "ts": "tsc src/index.js --declaration --allowJs --emitDeclarationOnly --outDir types",
     "build": "vite build"

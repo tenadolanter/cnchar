@@ -16,7 +16,7 @@ export const utilBaidu = async (char) => {
       headless: "new",
     });
     let page = await browser.pages().then((e) => e[0]);
-    const url = `https://hanyu.baidu.com/zici/s?from=aladdin&query=${char}srcid=51368&wd=${char}`;
+    const url = `https://hanyu.baidu.com/zici/s?from=aladdin&query=${char}&srcid=51368&wd=${char}`;
     await page.goto(url, { waitUntil: "domcontentloaded" });
     await sleep(1000);
     await page.waitForSelector("#word-header");
@@ -43,12 +43,22 @@ export const utilBaidu = async (char) => {
           traditionalElement
         )
       : "";
+    const explainElement = await page.$("#basicmean-wrapper .tab-content dl dd");
+    let explain = explainElement
+      ? await page.evaluate(
+          (element) => element.textContent,
+          explainElement
+        )
+      : "";
+    explain = explain.replaceAll(" ", "")
+    explain = explain.replaceAll("\n", "")
     result = {
       spell: pinyin,
       radical: radical,
       stroke: stroke,
       five: wuxing,
       tradition: traditional,
+      explain,
     };
     console.log(result);
     await sleep(3000);
